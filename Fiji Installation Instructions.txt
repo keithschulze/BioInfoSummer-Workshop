@@ -1,0 +1,2 @@
+Fiji will run on all OS platforms, but it requires the Java Runtime Environment (JRE) to be installed.
+
