@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="1.2" data-basepath=".." data-revision="1416740138974">
+    <div class="book"  data-level="1.2" data-basepath=".." data-revision="1416786434790">
     
 
 <div class="book-summary">
@@ -143,7 +143,7 @@
                         
                             <b>2.</b>
                         
-                         Automate cell scoring
+                         Automation of image analysis
                     </a>
                 
             
@@ -160,7 +160,7 @@
                         
                             <b>2.1.</b>
                         
-                         Automate scoring steps
+                         Automated cell scoring
                     </a>
                 
             
@@ -350,6 +350,7 @@
                     <section class="normal" id="section-gitbook_26">
                     
                         <h1 id="counting-cells">Counting cells</h1>
+<p><img src="../images/demo2/nuclei.png" alt=""></p>
 <h2 id="aim">Aim</h2>
 <p>Count the number of cells in an image</p>
 <p>1. Open image &quot;[...]/images/Widefield/Cell Segmentation/Nuclei.tif&quot;</p>
@@ -357,10 +358,12 @@
 
 <pre><code>Image → Adjust → Threshold
 Li auto-thresholding method
-</code></pre><p>Some nuclei are touching one another. Obviously this will skew the results; however, the &quot;Watershed&quot; binary morphology filter is able to split touching objects. It works particularly well for ellipsoid shapes.</p>
+</code></pre><p><img src="../images/demo2/nuclei_bin.png" alt=""></p>
+<p>Some nuclei are touching one another. Obviously this will skew the results; however, the &quot;Watershed&quot; binary morphology filter is able to split touching objects. It works particularly well for ellipsoid shapes.</p>
 <p>3. Split touching cell using watershed.</p>
 
 <p><code>Process → Binary → Watershed</code></p>
+<p><img src="../images/demo2/nuclei_bin_vs_ws.png" alt=""></p>
 <p>4. Use connected components (or Particle Analysis in the ImageJ world) to count number of cells and extract cellular parameters.</p>
 
 <p><code>Analyze →  Analyze Particles...</code></p>

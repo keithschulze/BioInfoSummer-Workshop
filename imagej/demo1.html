@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="1.1" data-basepath=".." data-revision="1416740138974">
+    <div class="book"  data-level="1.1" data-basepath=".." data-revision="1416786434790">
     
 
 <div class="book-summary">
@@ -143,7 +143,7 @@
                         
                             <b>2.</b>
                         
-                         Automate cell scoring
+                         Automation of image analysis
                     </a>
                 
             
@@ -160,7 +160,7 @@
                         
                             <b>2.1.</b>
                         
-                         Automate scoring steps
+                         Automated cell scoring
                     </a>
                 
             
@@ -349,13 +349,14 @@
                 
                     <section class="normal" id="section-gitbook_21">
                     
-                        <h1 id="stain-and-fluorescence-measurement">Stain and Fluorescence measurement</h1>
+                        <h1 id="fluorescent-stain-measurement">Fluorescent stain measurement</h1>
 <p>Fluorescent wide field images of three fluorescent markers/stains:</p>
 <ul>
 <li>Blue: DAPI nuclear marker</li>
 <li>Red: Marker for wounding</li>
 <li>Green: Cytoplasmic marker for healthy cells.</li>
 </ul>
+<p><img src="../images/demo1/fluoro_01_crop.png" alt=""></p>
 <hr>
 <p><strong>Aim:</strong>
 Analyse the area covered and/or intensity of marker for wounding. </p>
@@ -374,12 +375,14 @@ Voxel depth: 1
 <p>3. Split channels so we can do measurements on a specific channel.</p>
 
 <p><code>Image → Colour → Split Channels</code></p>
+<p><img src="../images/demo1/fluoro_01_crop_red.png" alt=""></p>
 <hr>
 <h2 id="filtering">Filtering</h2>
-<p>4. Apply a Gaussian Blur with a sigma of 2 px to reduce noise.</p>
+<p>4. Apply a Gaussian Blur with a sigma of 1 px to reduce noise.</p>
 
 <p><code>Process → Filters → Gaussian Blur...</code></p>
-<p>A Gaussian blur filter helps to reduce noise that is typically present in images acquired with highly sensitive cameras.</p>
+<p>A Gaussian blur filter helps to smooth noise that is typically present in images acquired with highly sensitive cameras.</p>
+<p><img src="../images/demo1/fluoro_01_blur.png" alt=""></p>
 <hr>
 <h2 id="segmentation">Segmentation</h2>
 <p>5. Threshold based segmentation:</p>
@@ -387,6 +390,7 @@ Voxel depth: 1
 <p><code>Image → Adjust → Threshold...</code></p>
 <p><img src="../images/demo1/threshold.png" alt=""></p>
 <p>Thresholding segments the images based on pixel intensity. Thresholds can be set manually or automatically via algorithms that examine the image histogram.</p>
+<p><img src="../images/demo1/fluoro_01_crop_red_blur_bin.png" alt=""></p>
 <hr>
 <h2 id="measurement">Measurement</h2>
 <p>6. Set measurement types:</p>
