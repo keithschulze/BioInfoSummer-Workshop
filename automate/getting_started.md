@@ -14,6 +14,22 @@ Given a multichannel fluorescent image, we can:
 
 Thankfully, computers are really good at automating repetitive tasks.
 
+Let's remind ourselves of the process for scoring cells manually:
+
+1. Split the DAPI, Ki67 and Ph3 channels, so we can work on them separately.
+2. Segment DAPI:
+    1. Threshold using Li AutoThreshold.
+    2. Watershed to split cells.
+3. Segment Ki67:
+    1. Threshold using Li AutoThreshold.
+4. Segment Ph3:
+    1. Threshold using Li AutoThreshold.
+5. Count cells in DAPI binary using Particle Analysis
+6. Count cells in Ki67 binary using Particle Analysis
+7. Count cells in Ph3 binary using Particle Analysis
+
+Note: We will introduce Geodesic reconstruction later.
+
 ---
 # Rapid re-intro to Python programming
 Don't worry about the details, the aims are:
@@ -49,3 +65,5 @@ def say_hello(name):
 	
 say_hello("john") 		# outputs: Hello, John
 ```
+
+We will also makes used of many functions/tools that are define by ImageJ and it plugins.

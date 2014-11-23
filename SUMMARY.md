@@ -8,5 +8,4 @@
 	* [Refinements](automate/automate3.md)
 	* [Pretty Results](automate/results.md)
 * [Scaling up](scaling/scaling.md)
-	* [Repeating](scaling/repeating.md)
 	* [Working with files](scaling/files.md)

@@ -2,7 +2,7 @@
 
 * Opensource image analysis software
 * Provides a base set of tools and libraries for interactive and programmatic image analysis
-* Powerful plugin system for extending functionality
+* Powerful plugin system for extending ImageJ's functionality
 
 
 ---
@@ -14,7 +14,7 @@ Long version: Fiji is an extension of the ImageJ core/base and it come bundled w
 
 ---
 ## Opening & Interacting with multi-dimensional images
-ImageJ/Fiji Hyperstacks let you to view images with up to 5D: 
+ImageJ/Fiji Hyperstacks let you to view multi-dimensional images: 
 
 - X, Y 
 - Z 

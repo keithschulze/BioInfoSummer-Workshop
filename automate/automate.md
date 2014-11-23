@@ -1,6 +1,6 @@
 # Automation
 
-First, let's get a reference to an open image in ImageJ and split the channels into 3 separate images. 
+First, let's get the open image from ImageJ and split the channels into 3 separate images. 
 
 ```python
 from ij import IJ, ImagePlus
@@ -26,7 +26,7 @@ ph3.show()
 ```
 
 ---
-Let's automate the different steps in scoring the number of cell expressing different markers.
+Next, let's automate the different steps in scoring the number of cell expressing different markers.
 
 Segment the DAPI channel by threshold and run watershed to split touching cells.
 
@@ -60,3 +60,4 @@ pa.analyze(ph3)
 rt.show("Results")
 ```
 
+![See if you can recognise some of the things we initiate in the ParticleAnalyzer in this dialog we used in manual interactive procedure.](../images/demo3/analyze_parts.png)
