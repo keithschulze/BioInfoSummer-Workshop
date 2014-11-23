@@ -1,4 +1,4 @@
-# Cell scoring revisited
+# Why automate? Cell scoring revisited
 Given a multichannel fluorescent image, we can:
 
 * Identify and count total cells 
@@ -28,7 +28,7 @@ Let's remind ourselves of the process for scoring cells manually:
 6. Count cells in Ki67 binary using Particle Analysis
 7. Count cells in Ph3 binary using Particle Analysis
 
-Note: We will introduce Geodesic reconstruction later.
+Note: We will introduce Geodesic reconstruction again later.
 
 ---
 # Rapid re-intro to Python programming

@@ -1,4 +1,4 @@
-# Automation
+# Example: Automate cell scoring
 
 First, let's get the open image from ImageJ and split the channels into 3 separate images. 
 
