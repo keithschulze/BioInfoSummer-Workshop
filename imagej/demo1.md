@@ -1,9 +1,11 @@
-# Stain and Fluorescence measurement
+# Fluorescent stain measurement
 Fluorescent wide field images of three fluorescent markers/stains:
 
 * Blue: DAPI nuclear marker
 * Red: Marker for wounding
 * Green: Cytoplasmic marker for healthy cells.
+
+![](../images/demo1/fluoro_01_crop.png)
 
 ---
 
@@ -28,15 +30,19 @@ Calibration are usually encoded in the image metadata in modern microscopes; how
 
 `Image → Colour → Split Channels`
 
+![](../images/demo1/fluoro_01_crop_red.png)
+
 ---
 
 ## Filtering
 
-<p>4. Apply a Gaussian Blur with a sigma of 2 px to reduce noise.</p>
+<p>4. Apply a Gaussian Blur with a sigma of 1 px to reduce noise.</p>
 
 `Process → Filters → Gaussian Blur...`
 
-A Gaussian blur filter helps to reduce noise that is typically present in images acquired with highly sensitive cameras.
+A Gaussian blur filter helps to smooth noise that is typically present in images acquired with highly sensitive cameras.
+
+![](../images/demo1/fluoro_01_blur.png)
 
 ---
 
@@ -49,6 +55,8 @@ A Gaussian blur filter helps to reduce noise that is typically present in images
 ![](../images/demo1/threshold.png)
 
 Thresholding segments the images based on pixel intensity. Thresholds can be set manually or automatically via algorithms that examine the image histogram.
+
+![](../images/demo1/fluoro_01_crop_red_blur_bin.png)
 
 ---
 
