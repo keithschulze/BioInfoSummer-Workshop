@@ -48,7 +48,10 @@ Segmenting the Ph3 channel (not shown here) is the same process.
 Now let's quantify the number of cells in each channel using Particle Analysis (i.e., Connected Components). To do this we use the ParticleAnalyzer plugin from ImageJ.
 
 See if you can recognise some of the things we initiate in the ParticleAnalyzer in this dialog we used in manual interactive procedure.
+
+
 ![](../images/demo3/analyze_parts.png)
+
 
 ```python
 pa = ParticleAnalyzer(ParticleAnalyzer.EXCLUDE_EDGE_PARTICLES |
