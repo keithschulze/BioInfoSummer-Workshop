@@ -1,5 +1,5 @@
 # Refinements
-Total cell number and number of cells expressing markers are determined independently on each image. However, number of cells expressing a specific marker cannot be reliably determined from those the marker channel image because marker expression is not homogenous across nuclei like DAPI.
+Total cell number and number of cells expressing markers are determined independently on each image. However, the number of cells expressing a specific marker cannot be reliably determined from those the marker channel images because marker expression is variable and is not homogenous across nuclei like DAPI.
 
 Geodesic reconstruction allows us to use a reliable marker like DAPI to determine which cells overlap an area of marker expression.
 

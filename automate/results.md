@@ -21,12 +21,16 @@ def count_cells(img, min_size=0, max_size=Double.POSITIVE_INFINITY):
     :type max_circ float
     :return number of cells
     """
+    # Define a results table to store results for each particle
     rt = ResultsTable()
     pa = ParticleAnalyzer(ParticleAnalyzer.EXCLUDE_EDGE_PARTICLES |
                           ParticleAnalyzer.SHOW_NONE,
                           ParticleAnalyzer.AREA, rt, min_size, max_size)
     pa.setHideOutputImage(True)
     pa.analyze(img)
+
+    # Hack to get the number of cells - count the number of rows in the 
+    # first column.
     return len(rt.getColumn(0))
 ```
 
