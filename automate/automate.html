@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="2.1" data-basepath=".." data-revision="1416786434790">
+    <div class="book"  data-level="2.1" data-basepath=".." data-revision="1416793509896">
     
 
 <div class="book-summary">
@@ -361,13 +361,12 @@
 
 <span class="hljs-comment"># Get the currently open image</span>
 img = IJ.getImage()
-title = img.getTitle()
 
 <span class="hljs-comment"># Split the channels</span>
 channels = ChannelSplitter.split(img)
-dapi = channels[<span class="hljs-number">0</span>]
+ph3 = channels[<span class="hljs-number">0</span>]
 ki67 = channels[<span class="hljs-number">1</span>]
-ph3 = channels[<span class="hljs-number">2</span>]
+dapi = channels[<span class="hljs-number">2</span>]
 dapi.show()
 ki67.show()
 ph3.show()
@@ -387,17 +386,30 @@ IJ.run(ki67, <span class="hljs-string">"Convert to Mask"</span>, <span class="hl
 <p>Segmenting the Ph3 channel (not shown here) is the same process.</p>
 <hr>
 <p>Now let&#39;s quantify the number of cells in each channel using Particle Analysis (i.e., Connected Components). To do this we use the ParticleAnalyzer plugin from ImageJ.</p>
-<pre><code class="lang-python">rt = ResultsTable()
-pa = ParticleAnalyzer(ParticleAnalyzer.EXCLUDE_EDGE_PARTICLES |
-                                   ParticleAnalyzer.SHOW_MASKS,
-                                   ParticleAnalyzer.AREA, rt, <span class="hljs-number">75</span>, 
-                                   Double.POSITIVE_INFINITY)
+<p>See if you can recognise some of the things we initiate in the ParticleAnalyzer in this dialog we used in manual interactive procedure.
+<img src="../images/demo3/analyze_parts.png" alt=""></p>
+<pre><code class="lang-python">pa = ParticleAnalyzer(ParticleAnalyzer.EXCLUDE_EDGE_PARTICLES |
+                      ParticleAnalyzer.DISPLAY_SUMMARY |
+                      ParticleAnalyzer.SHOW_OVERLAY_OUTLINES,
+                      ParticleAnalyzer.AREA, <span class="hljs-keyword">None</span>, <span class="hljs-number">75</span>,
+                      Double.POSITIVE_INFINITY)
 pa.analyze(dapi)
+
+
+pa = ParticleAnalyzer(ParticleAnalyzer.EXCLUDE_EDGE_PARTICLES |
+                      ParticleAnalyzer.DISPLAY_SUMMARY |
+                      ParticleAnalyzer.SHOW_OVERLAY_OUTLINES,
+                      ParticleAnalyzer.AREA, <span class="hljs-keyword">None</span>, <span class="hljs-number">75</span>,
+                      Double.POSITIVE_INFINITY)
 pa.analyze(ki67)
+
+pa = ParticleAnalyzer(ParticleAnalyzer.EXCLUDE_EDGE_PARTICLES |
+                      ParticleAnalyzer.DISPLAY_SUMMARY |
+                      ParticleAnalyzer.SHOW_OVERLAY_OUTLINES,
+                      ParticleAnalyzer.AREA, <span class="hljs-keyword">None</span>, <span class="hljs-number">75</span>,
+                      Double.POSITIVE_INFINITY)
 pa.analyze(ph3)
-rt.show(<span class="hljs-string">"Results"</span>)
 </code></pre>
-<p><img src="../images/demo3/analyze_parts.png" alt="See if you can recognise some of the things we initiate in the ParticleAnalyzer in this dialog we used in manual interactive procedure."></p>
 
                     
                     </section>

@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="2.3" data-basepath=".." data-revision="1416786434790">
+    <div class="book"  data-level="2.3" data-basepath=".." data-revision="1416793509896">
     
 
 <div class="book-summary">
@@ -350,7 +350,7 @@
                     <section class="normal" id="section-gitbook_9">
                     
                         <h1 id="refinements">Refinements</h1>
-<p>Total cell number and number of cells expressing markers are determined independently on each image. However, number of cells expressing a specific marker cannot be reliably determined from those the marker channel image because marker expression is not homogenous across nuclei like DAPI.</p>
+<p>Total cell number and number of cells expressing markers are determined independently on each image. However, the number of cells expressing a specific marker cannot be reliably determined from those the marker channel images because marker expression is variable and is not homogenous across nuclei like DAPI.</p>
 <p>Geodesic reconstruction allows us to use a reliable marker like DAPI to determine which cells overlap an area of marker expression.</p>
 <hr>
 <p>Here we make use of the third-party <a href="https://github.com/ijpb/MorphoLibJ" target="_blank">MorphoLib</a> library/plugin for morphological operators. To implement this, we simply create a function to use DAPI as a mask for geodesic reconstruction of the marker images:</p>

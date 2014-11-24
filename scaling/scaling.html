@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="3" data-basepath=".." data-revision="1416786434790">
+    <div class="book"  data-level="3" data-basepath=".." data-revision="1416793509896">
     
 
 <div class="book-summary">
@@ -355,7 +355,7 @@
 <ol>
 <li>Ask user for a folder of images to analyse.</li>
 <li>Query that folder to get a list of files to analyse.</li>
-<li>Filter the list of files to exclude those that are supported.</li>
+<li>Filter the list of files to exclude those that are not supported.</li>
 <li>For each file in our list:<ol>
 <li>Open the image</li>
 <li>Analyse the image using the routine we setup previously.</li>
@@ -363,6 +363,38 @@
 </ol>
 </li>
 </ol>
+<p>Note: We might also like to include some code to save the segmented binary images, so that users can check the outputs of our script. For that we need to ask the user for an output folder and get image to save the segmented binary images into that folder.</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-comment"># Get the user to choose a directory of images to analyse</span>
+    dc = DirectoryChooser(<span class="hljs-string">"Pick a folder of images to analyse..."</span>)
+    img_dir = dc.getDirectory()
+
+    <span class="hljs-keyword">if</span> img_dir <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>:
+        <span class="hljs-keyword">print</span> <span class="hljs-string">"No directory selected."</span>
+        <span class="hljs-keyword">return</span>
+
+    <span class="hljs-comment"># Get the users to specify an output directory</span>
+    od = DirectoryChooser(<span class="hljs-string">"Pick an output folder..."</span>)
+    output_dir = od.getDirectory()
+
+    <span class="hljs-comment"># Get a list of files from the input directory</span>
+    file_list = os.listdir(img_dir)
+    file_list = filter(accept, file_list)
+
+    results = ResultsTable()
+
+    <span class="hljs-comment"># Iterate through the list of files</span>
+    <span class="hljs-keyword">for</span> fp <span class="hljs-keyword">in</span> file_list:
+        image = IJ.openImage(os.path.join(img_dir, fp))
+
+        <span class="hljs-comment"># ... code that analyses image from v4 of the script</span>
+        <span class="hljs-comment"># ...</span>
+        <span class="hljs-comment"># ...</span>
+
+    results.show(<span class="hljs-string">"Results"</span>)
+
+run()
+</code></pre>
 
                     
                     </section>

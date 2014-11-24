@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="2.4" data-basepath=".." data-revision="1416786434790">
+    <div class="book"  data-level="2.4" data-basepath=".." data-revision="1416793509896">
     
 
 <div class="book-summary">
@@ -368,12 +368,16 @@
     :type max_circ float
     :return number of cells
     """</span>
+    <span class="hljs-comment"># Define a results table to store results for each particle</span>
     rt = ResultsTable()
     pa = ParticleAnalyzer(ParticleAnalyzer.EXCLUDE_EDGE_PARTICLES |
                           ParticleAnalyzer.SHOW_NONE,
                           ParticleAnalyzer.AREA, rt, min_size, max_size)
     pa.setHideOutputImage(<span class="hljs-keyword">True</span>)
     pa.analyze(img)
+
+    <span class="hljs-comment"># Hack to get the number of cells - count the number of rows in the </span>
+    <span class="hljs-comment"># first column.</span>
     <span class="hljs-keyword">return</span> len(rt.getColumn(<span class="hljs-number">0</span>))
 </code></pre>
 <hr>
