@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="2.2" data-basepath=".." data-revision="1416797934712">
+    <div class="book"  data-level="2.2" data-basepath=".." data-revision="1417579527110">
     
 
 <div class="book-summary">
@@ -347,12 +347,16 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_6">
+                    <section class="normal" id="section-gitbook_5">
                     
-                        <h1 id="cleaning-up-the-code">Cleaning up the code</h1>
-<p>We can introduce functions to encapsulate certain tasks and break the code up into logical blocks.</p>
+                        <h1 id="phase-2-cleaning-up-the-code">Phase 2: Cleaning up the code</h1>
+<p>We can introduce functions to encapsulate certain tasks and break the code up into logical blocks:</p>
+<ul>
+<li><strong>D</strong>on&#39;t <strong>R</strong>epeat <strong>Y</strong>ourself (DRY).</li>
+<li>Better documentation.</li>
+</ul>
 <hr>
-<p>Create a function to splits channels and return them separate images.</p>
+<p>First, let&#39;s create a function to splits channels and return them separate images.</p>
 <pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">split_channels</span><span class="hljs-params">(image)</span>:</span>
     <span class="hljs-string">"""Split a 3-channel image and returns the 3 separate channels.
     :param image input image
@@ -367,7 +371,7 @@ ki67, ph3, dapi = split_channels(img)
 <span class="hljs-comment">#... rest of code</span>
 </code></pre>
 <hr>
-<p>Next, we can create functions for segmentating different channels. The same segmentation procedure is used for both Ki67 and Ph3, so one function will work for both. DAPI needs an extra watershed steps to split touching cells, so it gets a separate function.</p>
+<p>Next, we can create functions for segmenting different channels. The same segmentation procedure is used for both Ki67 and Ph3, so one function will work for both. DAPI needs an extra watershed steps to split touching cells, so it gets a separate function.</p>
 <pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">segment_marker</span><span class="hljs-params">(img)</span>:</span>
     <span class="hljs-string">"""Segment marker channel by Li autothreshold and output binary.
     :param img input image

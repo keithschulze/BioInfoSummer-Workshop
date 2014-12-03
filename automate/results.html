@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="2.4" data-basepath=".." data-revision="1416797934712">
+    <div class="book"  data-level="2.4" data-basepath=".." data-revision="1417579527110">
     
 
 <div class="book-summary">
@@ -347,10 +347,10 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_16">
+                    <section class="normal" id="section-gitbook_15">
                     
-                        <h1 id="make-the-results-look-pretty">Make the results look pretty</h1>
-<p>Cell number for each channel are output as a different line in the table. It would be better if the number and proportion of cells expressing markers could be output as a single entry for each image.</p>
+                        <h1 id="phase-4-make-the-results-look-pretty">Phase 4: Make the results look pretty</h1>
+<p>The number of cells for each channel are output as a different line in the table. It would be better if the number and proportion of cells expressing markers could be output as a single row in the table for each image.</p>
 <p><img src="../images/Cell_Number_and_Proportions_and_C1-Control_tif__33_3__.png" alt="" title="Cell Number and Proportions Table"></p>
 <hr>
 <p>Define a function to count the number of cells in a binary image using the ParticleAnalyzer and return just the number.</p>
@@ -394,7 +394,7 @@ ki67_cell_prop = float(ki67_cell_num) / float(dapi_cell_num) * <span class="hljs
 ph3_cell_prop = float(ph3_cell_num) / float(dapi_cell_num) * <span class="hljs-number">100</span>
 </code></pre>
 <hr>
-<p>Okay, let&#39;s tabulate the results using an ImageJ ResultsTable.</p>
+<p>Okay, let&#39;s tabulate the results using an ImageJ <a href="http://rsb.info.nih.gov/ij/developer/api/ij/measure/ResultsTable.html" target="_blank">ResultsTable</a>.</p>
 <pre><code class="lang-python"><span class="hljs-comment"># Tabulate the results</span>
 results = ResultsTable()
 results.incrementCounter()

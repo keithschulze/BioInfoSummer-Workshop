@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="2" data-basepath=".." data-revision="1416797934712">
+    <div class="book"  data-level="2" data-basepath=".." data-revision="1417579527110">
     
 
 <div class="book-summary">
@@ -347,21 +347,23 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_9">
+                    <section class="normal" id="section-gitbook_11">
                     
                         <h1 id="why-automate-cell-scoring-revisited">Why automate? Cell scoring revisited</h1>
 <p>Given a multichannel fluorescent image, we can:</p>
 <ul>
-<li>Identify and count total cells </li>
+<li>Segment and count total cells </li>
 <li>Score the number/proportion of cell that are positive for 2 different markers</li>
 </ul>
 <hr>
 <blockquote>
 <p>&quot;That looks great! Now repeat it with 4 genotypes, 5 treatments, 3 concentrations, 3 fields of view and 5 replicates. Oh, and it could have a developmental effect, so maybe image it over 4 time points.&quot;</p>
 </blockquote>
-<p>-- Assoc. Prof.   Idon&#39;tcareif   Youdon&#39;tsleep</p>
-<hr>
+<p><strong>Assoc. Prof.   Idon&#39;tcareif   Youdon&#39;tsleep</strong></p>
+<p><br>
+That&#39;s 10,800 individual images to process.</p>
 <p>Thankfully, computers are really good at automating repetitive tasks.</p>
+<hr>
 <p>Let&#39;s remind ourselves of the process for scoring cells manually:</p>
 <ol>
 <li>Split the DAPI, Ki67 and Ph3 channels, so we can work on them separately.</li>
@@ -384,7 +386,7 @@
 </ol>
 <p>Note: We will introduce Geodesic reconstruction again later.</p>
 <hr>
-<h1 id="rapid-re-intro-to-python-programming">Rapid re-intro to Python programming</h1>
+<h2 id="rapid-re-intro-to-python-programming">Rapid re-intro to Python programming</h2>
 <p>Don&#39;t worry about the details, the aims are:</p>
 <ul>
 <li>Taste for the logic involved in automating an image analysis workflow.</li>
@@ -394,7 +396,7 @@
 <span class="hljs-string">"""So is this"""</span>
 
 <span class="hljs-comment"># Basic Types and Variables</span>
-variable = <span class="hljs-string">"This is a string of characters or simply a string"</span>
+variable = <span class="hljs-string">"This is a string of characters (or simply a string)."</span>
 another_variable = <span class="hljs-string">"Hello, world!"</span>
 five = <span class="hljs-number">5</span>
 exact = <span class="hljs-number">10.23</span>
@@ -415,7 +417,30 @@ y = square(<span class="hljs-number">2</span>)
 
 say_hello(<span class="hljs-string">"john"</span>)         <span class="hljs-comment"># outputs: Hello, John</span>
 </code></pre>
-<p>We will also makes used of many functions/tools that are define by ImageJ and it plugins.</p>
+<p>We will also make use of many functions/tools that are defined in the ImageJ core libraries and its plugins:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> ij <span class="hljs-keyword">import</span> IJ, ImagePlus, ImageProcessor
+<span class="hljs-keyword">from</span> ij.measure <span class="hljs-keyword">import</span> ResultsTable
+<span class="hljs-keyword">from</span> ij.plugin <span class="hljs-keyword">import</span> ChannelSplitter
+</code></pre>
+<p>Admittedly, these are not very discoverable, but here are a couple useful resources to get you started:</p>
+<ul>
+<li><a href="http://rsb.info.nih.gov/ij/developer/index.html" target="_blank">Image developer documentation</a></li>
+<li><a href="http://rsb.info.nih.gov/ij/developer/api/" target="_blank">ImageJ API documentation</a></li>
+<li><a href="http://fiji.sc/Jython_Scripting" target="_blank">Fiji Jython scripting introduction</a></li>
+</ul>
+<h2 id="a-note-on-imageplus-and-imageprocessor">A note on ImagePlus and ImageProcessor</h2>
+<p><a href="http://rsb.info.nih.gov/ij/developer/api/ij/ImagePlus.html" target="_blank">ImagePlus</a> and <a href="http://rsb.info.nih.gov/ij/developer/api/ij/process/ImageProcessor.html" target="_blank">ImageProcessor</a> are very important data abstractions i.e., this is how images are represented in ImageJ. </p>
+<p>ImagePlus:</p>
+<ul>
+<li>Underlying programmatical structure used to represent a multi-dimensional image in ImageJ.</li>
+<li>Hold important information like the size of each dimension, bit-depth of pixels, calibrations, metadata and much more.</li>
+<li>Pixel data for each plane of the image is store in an ImageProcessor.</li>
+</ul>
+<p>ImageProcessor:</p>
+<ul>
+<li>Has functions for accessing and manipulating actual pixel data for a particular image plane.</li>
+</ul>
+<p>Don&#39;t worry if this is not immediately clear, just understand that underlying the images you see in the ImageJ user interface is an ImagePlus and that each image plane has an ImageProcessor.</p>
 
                     
                     </section>

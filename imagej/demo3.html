@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="1.3" data-basepath=".." data-revision="1416797934712">
+    <div class="book"  data-level="1.3" data-basepath=".." data-revision="1417579527110">
     
 
 <div class="book-summary">
@@ -349,8 +349,8 @@
                 
                     <section class="normal" id="section-gitbook_27">
                     
-                        <h1 id="cell-scoring">Cell scoring</h1>
-<p>Extension of the previous demo. Widefield fluorescent images where cells are expressing markers for proliferation (green) and death (red).</p>
+                        <h1 id="example-3-cell-scoring">Example 3: Cell scoring</h1>
+<p>Extension of the previous demo. Widefield fluorescent images where cells are expressing markers for cell proliferation (green) and cell death (red).</p>
 <p>Markers:</p>
 <ul>
 <li>Blue - DAPI Nuclear marker.</li>
@@ -362,7 +362,7 @@
 <p>Determine the proportion of total cells that express different markers.</p>
 <p>1. Open image: &quot;[...]/Images/Widefield/Cell Scoring and Cycle/Control.tif&quot;</p>
 
-
+<p><br></p>
 <p>2. Split the channels so we can work on them individually</p>
 
 <p><code>Image → Color → Split Channels</code></p>
@@ -372,11 +372,13 @@
 
 <pre><code>Image → Adjust → Threshold...
 Select &quot;Li&quot; AutoThreshold method.
-</code></pre><p>4. Split touching cells with a Watershed binary morphological filter.</p>
+</code></pre><p><br></p>
+<p>4. Split touching cells with a Watershed binary morphological filter.</p>
 
 <p><code>Process → Binary → Watershed</code></p>
 <p><img src="../images/demo3/cell_score_c3_bin_vs_ws.png" alt=""></p>
-<p>5. Use connected components (or Particle Analysis in the ImageJ world) to count number of cells. We set a minimum size filter in order to discard any small dots derived from noise that surpass the threshold segmentation.</p>
+<p><br></p>
+<p>5. Particle Analysis to count number of cells. We set a minimum size filter in order to discard any small dots derived from noise that surpass the threshold segmentation.</p>
 
 <p><code>Analyze → Analyze Particles...</code></p>
 <p><img src="../images/demo3/analyze_parts.png" alt=""></p>
@@ -388,17 +390,20 @@ Select &quot;Li&quot; AutoThreshold method.
 <pre><code>Image → Adjust → Threshold...
 Select &quot;Li&quot; AutoThreshold method.
 </code></pre><p><img src="../images/demo3/cell_score_c1_c2_bin.png" alt=""></p>
+<p><br></p>
 <p>7. Particle analysis to count number of cells.</p>
 
 <p><code>Analyze → Analyze Particles...</code></p>
 <p><img src="../images/demo3/results.png" alt=""></p>
 <h2 id="improving-precision">Improving precision</h2>
-<p>This process works reasonably for the two markers; however, our lower size cutoff does exclude some of red expressing cells because the marker isn&#39;t expressed strongly or throughout the entire nuclei and thus doesn&#39;t make the size cutoff. More generally, it is often the case that some markers such as a DAPI marker are simply more reliable, hence it would be nice if we could use the DAPI segmentation as a &#39;template&#39; to find to find cell that express other markers.</p>
+<p>This process works reasonably for the two markers; however, our lower size cutoff does exclude some of red expressing cells because the marker isn&#39;t expressed strongly or evenly throughout the entire nuclei and thus doesn&#39;t make the size cutoff. More generally, it is often the case that some markers such as a DAPI marker are simply more reliable, hence it would be nice if we could use the DAPI segmentation as a &#39;template&#39; to find to find cells that express other markers.</p>
 <p>Geodesic reconstruction can do exactly this. We will make use of the third-party <a href="https://github.com/ijpb/MorphoLibJ" target="_blank">MorphoLib</a> plugin for morphological operators.</p>
-<p>8. Run the Geodesic Reconstruction plugin using each segmented marker image(i.e., binary images for Ki67 and Ph3) and the segmented DAPI image as the mask.</p>
+<p>8. Run the Geodesic Reconstruction plugin using each segmented marker image (i.e., binary images for Ki67 and Ph3) and the segmented DAPI image as the mask.</p>
 
+<p><code>Plugins → Fast Morphology → Geodesic Reconstruction</code></p>
 <p><img src="../images/demo3/geodesic_recon.png" alt=""></p>
 <p><img src="../images/demo3/cell_score_c1_c2_c3_bin_gr.png" alt=""></p>
+<p><br></p>
 <p>7. Particle analysis to count number of cells in the reconstucted images.</p>
 
 <p><code>Analyze → Analyze Particles...</code></p>

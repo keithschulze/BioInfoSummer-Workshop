@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="2.1" data-basepath=".." data-revision="1416797934712">
+    <div class="book"  data-level="2.1" data-basepath=".." data-revision="1417579527110">
     
 
 <div class="book-summary">
@@ -347,12 +347,11 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_2">
+                    <section class="normal" id="section-gitbook_1">
                     
-                        <h1 id="example-automate-cell-scoring">Example: Automate cell scoring</h1>
+                        <h1 id="phase-1-automate-cell-scoring">Phase 1: Automate cell scoring</h1>
 <p>First, let&#39;s get the open image from ImageJ and split the channels into 3 separate images. </p>
 <pre><code class="lang-python"><span class="hljs-keyword">from</span> ij <span class="hljs-keyword">import</span> IJ, ImagePlus
-<span class="hljs-keyword">from</span> ij.plugin <span class="hljs-keyword">import</span> ChannelSplitter
 <span class="hljs-keyword">from</span> ij.measure <span class="hljs-keyword">import</span> ResultsTable
 <span class="hljs-keyword">from</span> ij.plugin <span class="hljs-keyword">import</span> ChannelSplitter
 <span class="hljs-keyword">from</span> ij.plugin.filter <span class="hljs-keyword">import</span> ParticleAnalyzer
@@ -385,8 +384,8 @@ IJ.run(ki67, <span class="hljs-string">"Convert to Mask"</span>, <span class="hl
 </code></pre>
 <p>Segmenting the Ph3 channel (not shown here) is the same process.</p>
 <hr>
-<p>Now let&#39;s quantify the number of cells in each channel using Particle Analysis (i.e., Connected Components). To do this we use the ParticleAnalyzer plugin from ImageJ.</p>
-<p>See if you can recognise some of the things we initiate in the ParticleAnalyzer in this dialog we used in manual interactive procedure.</p>
+<p>Now let&#39;s quantify the number of cells in each channel using Particle Analysis (i.e., Connected Components). To do this we use the <a href="http://rsb.info.nih.gov/ij/developer/api/ij/plugin/filter/ParticleAnalyzer.html" target="_blank">ParticleAnalyzer</a> plugin from ImageJ.</p>
+<p>See if you can recognise some of the things we initiate the ParticleAnalyzer with in the dialog we used in the manual interactive procedure.</p>
 <p><img src="../images/demo3/analyze_parts.png" alt=""></p>
 <pre><code class="lang-python">pa = ParticleAnalyzer(ParticleAnalyzer.EXCLUDE_EDGE_PARTICLES |
                       ParticleAnalyzer.DISPLAY_SUMMARY |

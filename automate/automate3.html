@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="2.3" data-basepath=".." data-revision="1416797934712">
+    <div class="book"  data-level="2.3" data-basepath=".." data-revision="1417579527110">
     
 
 <div class="book-summary">
@@ -347,13 +347,16 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_13">
+                    <section class="normal" id="section-gitbook_8">
                     
-                        <h1 id="refinements">Refinements</h1>
-<p>Total cell number and number of cells expressing markers are determined independently on each image. However, the number of cells expressing a specific marker cannot be reliably determined from those the marker channel images because marker expression is variable and is not homogenous across nuclei like DAPI.</p>
+                        <h1 id="phase-3-refinements">Phase 3: Refinements</h1>
 <p>Geodesic reconstruction allows us to use a reliable marker like DAPI to determine which cells overlap an area of marker expression.</p>
+<p>Here we make use of the third-party <a href="https://github.com/ijpb/MorphoLibJ" target="_blank">MorphoLibJ</a> library/plugin for morphological operators. MorphoLibJ provides a function for that implements geodesic reconstruction. It&#39;s definition looks something like this:</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">reconstructByDilation</span><span class="hljs-params">(markerProc, maskProc, connectivity)</span>:</span>
+  <span class="hljs-comment">#implentation</span>
+</code></pre>
 <hr>
-<p>Here we make use of the third-party <a href="https://github.com/ijpb/MorphoLibJ" target="_blank">MorphoLib</a> library/plugin for morphological operators. To implement this, we simply create a function to use DAPI as a mask for geodesic reconstruction of the marker images:</p>
+<p>We simply create a function to use DAPI as a mask for geodesic reconstruction of a marker image:</p>
 <pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">apply_mask</span><span class="hljs-params">(marker, mask)</span>:</span>
     <span class="hljs-string">"""Applies a mask to an input binary using geodesic reconstruction.
     :param marker binary image that with be masked
@@ -369,7 +372,7 @@
     <span class="hljs-keyword">return</span> output_imp
 </code></pre>
 <hr>
-<p>Then we can simply use this function to reconstruct which DAPI cells express the marker.</p>
+<p>Then we can simply use this function to reconstruct images for each marker showing which DAPI cells express that marker.</p>
 <pre><code class="lang-python"><span class="hljs-comment"># Filter segmented marker images with the DAPI channels that we trust</span>
 ki67 = apply_mask(ki67, dapi)
 ph3 = apply_mask(ph3, dapi)
