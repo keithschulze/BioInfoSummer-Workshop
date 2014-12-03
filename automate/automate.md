@@ -1,10 +1,9 @@
-# Example: Automate cell scoring
+# Phase 1: Automate cell scoring
 
 First, let's get the open image from ImageJ and split the channels into 3 separate images. 
 
 ```python
 from ij import IJ, ImagePlus
-from ij.plugin import ChannelSplitter
 from ij.measure import ResultsTable
 from ij.plugin import ChannelSplitter
 from ij.plugin.filter import ParticleAnalyzer
@@ -45,9 +44,9 @@ IJ.run(ki67, "Convert to Mask", "")
 Segmenting the Ph3 channel (not shown here) is the same process.
 
 ---
-Now let's quantify the number of cells in each channel using Particle Analysis (i.e., Connected Components). To do this we use the ParticleAnalyzer plugin from ImageJ.
+Now let's quantify the number of cells in each channel using Particle Analysis (i.e., Connected Components). To do this we use the [ParticleAnalyzer](http://rsb.info.nih.gov/ij/developer/api/ij/plugin/filter/ParticleAnalyzer.html) plugin from ImageJ.
 
-See if you can recognise some of the things we initiate in the ParticleAnalyzer in this dialog we used in manual interactive procedure.
+See if you can recognise some of the things we initiate the ParticleAnalyzer with in the dialog we used in the manual interactive procedure.
 
 
 ![](../images/demo3/analyze_parts.png)

@@ -9,7 +9,7 @@
 ## What is Fiji?
 Short version: **F**iji **I**s **J**ust **I**mageJ
 
-Long version: Fiji is an extension of the ImageJ core/base and it come bundled with a whole bunch of useful plugins and goodies. It's a really good place to start with ImageJ.
+Long version: Fiji is an extension of the ImageJ core/base and it comes bundled with a whole bunch of useful plugins and goodies. It's a really good place to start with ImageJ.
 
 
 ---
@@ -25,14 +25,15 @@ ImageJ/Fiji Hyperstacks let you to view multi-dimensional images:
 ---
 ## Tools
 
+All the usaul suspect and more:
+
 - Navigation (Zoom, Pan)
 - Transformations (Duplicate, Crop, Scale, Rotate)
 - Regions Of Interest (ROI)
 
 ---
 ## Image Calibration
-Relating image units to physical units i.e., what size does each pixel represent in the real world.
 
-Depends on:
+Relating image units to physical units i.e., what size does each pixel represent in metric units. Depends on the optical path that projects photons onto the detector or sensor.
 
-- Optics that project photons onto the detector or sensor.
+Calibration are usually encoded in the image metadata in modern microscopes, but images for older microscopes need to be calibrated.

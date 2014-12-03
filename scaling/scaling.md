@@ -1,4 +1,4 @@
-# Looping the analysis procedure
+# Phase 5: Scaling up
 Let's put in the code to run our analysis over a folder full of images.
 
 Break down the requirements:

@@ -1,5 +1,5 @@
-# Cell scoring
-Extension of the previous demo. Widefield fluorescent images where cells are expressing markers for proliferation (green) and death (red).
+# Example 3: Cell scoring
+Extension of the previous demo. Widefield fluorescent images where cells are expressing markers for cell proliferation (green) and cell death (red).
 
 Markers:
 
@@ -14,7 +14,7 @@ Determine the proportion of total cells that express different markers.
 
 <p>1. Open image: "[...]/Images/Widefield/Cell Scoring and Cycle/Control.tif"</p>
 
-
+<br>
 <p>2. Split the channels so we can work on them individually</p>
 
 `Image → Color → Split Channels`
@@ -23,7 +23,6 @@ Determine the proportion of total cells that express different markers.
 
 
 ## Determine total cell number
-
 <p>3. Segment the DAPI (blue) channel by thresholding.</p>
 
 ```
@@ -31,13 +30,15 @@ Image → Adjust → Threshold...
 Select "Li" AutoThreshold method.
 ```
 
+<br>
 <p>4. Split touching cells with a Watershed binary morphological filter.</p>
 
 `Process → Binary → Watershed`
 
 ![](../images/demo3/cell_score_c3_bin_vs_ws.png)
 
-<p>5. Use connected components (or Particle Analysis in the ImageJ world) to count number of cells. We set a minimum size filter in order to discard any small dots derived from noise that surpass the threshold segmentation.</p>
+<br>
+<p>5. Particle Analysis to count number of cells. We set a minimum size filter in order to discard any small dots derived from noise that surpass the threshold segmentation.</p>
 
 `Analyze → Analyze Particles...`
 
@@ -58,6 +59,7 @@ Select "Li" AutoThreshold method.
 
 ![](../images/demo3/cell_score_c1_c2_bin.png)
 
+<br>
 <p>7. Particle analysis to count number of cells.</p>
 
 `Analyze → Analyze Particles...`
@@ -66,16 +68,19 @@ Select "Li" AutoThreshold method.
 
 
 ## Improving precision
-This process works reasonably for the two markers; however, our lower size cutoff does exclude some of red expressing cells because the marker isn't expressed strongly or throughout the entire nuclei and thus doesn't make the size cutoff. More generally, it is often the case that some markers such as a DAPI marker are simply more reliable, hence it would be nice if we could use the DAPI segmentation as a 'template' to find to find cell that express other markers.
+This process works reasonably for the two markers; however, our lower size cutoff does exclude some of red expressing cells because the marker isn't expressed strongly or evenly throughout the entire nuclei and thus doesn't make the size cutoff. More generally, it is often the case that some markers such as a DAPI marker are simply more reliable, hence it would be nice if we could use the DAPI segmentation as a 'template' to find to find cells that express other markers.
 
 Geodesic reconstruction can do exactly this. We will make use of the third-party [MorphoLib](https://github.com/ijpb/MorphoLibJ) plugin for morphological operators.
 
-<p>8. Run the Geodesic Reconstruction plugin using each segmented marker image(i.e., binary images for Ki67 and Ph3) and the segmented DAPI image as the mask.</p>
+<p>8. Run the Geodesic Reconstruction plugin using each segmented marker image (i.e., binary images for Ki67 and Ph3) and the segmented DAPI image as the mask.</p>
+
+`Plugins → Fast Morphology → Geodesic Reconstruction`
 
 ![](../images/demo3/geodesic_recon.png)
 
 ![](../images/demo3/cell_score_c1_c2_c3_bin_gr.png)
 
+<br>
 <p>7. Particle analysis to count number of cells in the reconstucted images.</p>
 
 `Analyze → Analyze Particles...`

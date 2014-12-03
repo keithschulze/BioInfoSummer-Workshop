@@ -1,5 +1,5 @@
-# Make the results look pretty
-Cell number for each channel are output as a different line in the table. It would be better if the number and proportion of cells expressing markers could be output as a single entry for each image.
+# Phase 4: Make the results look pretty
+The number of cells for each channel are output as a different line in the table. It would be better if the number and proportion of cells expressing markers could be output as a single row in the table for each image.
 
 ![](../images/Cell_Number_and_Proportions_and_C1-Control_tif__33_3__.png "Cell Number and Proportions Table")
 
@@ -54,7 +54,7 @@ ph3_cell_prop = float(ph3_cell_num) / float(dapi_cell_num) * 100
 ```
 
 ---
-Okay, let's tabulate the results using an ImageJ ResultsTable.
+Okay, let's tabulate the results using an ImageJ [ResultsTable](http://rsb.info.nih.gov/ij/developer/api/ij/measure/ResultsTable.html).
 
 ```python
 # Tabulate the results

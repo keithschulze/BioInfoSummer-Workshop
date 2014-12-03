@@ -1,9 +1,12 @@
-# Cleaning up the code
+# Phase 2: Cleaning up the code
 
-We can introduce functions to encapsulate certain tasks and break the code up into logical blocks.
+We can introduce functions to encapsulate certain tasks and break the code up into logical blocks:
+
+- __D__on't __R__epeat __Y__ourself (DRY).
+- Better documentation.
 
 ---
-Create a function to splits channels and return them separate images.
+First, let's create a function to splits channels and return them separate images.
 
 ```python
 def split_channels(image):
@@ -21,7 +24,7 @@ ki67, ph3, dapi = split_channels(img)
 ```
 
 ---
-Next, we can create functions for segmentating different channels. The same segmentation procedure is used for both Ki67 and Ph3, so one function will work for both. DAPI needs an extra watershed steps to split touching cells, so it gets a separate function.
+Next, we can create functions for segmenting different channels. The same segmentation procedure is used for both Ki67 and Ph3, so one function will work for both. DAPI needs an extra watershed steps to split touching cells, so it gets a separate function.
 
 ```python
 def segment_marker(img):

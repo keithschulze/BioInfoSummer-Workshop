@@ -1,10 +1,17 @@
-# Refinements
-Total cell number and number of cells expressing markers are determined independently on each image. However, the number of cells expressing a specific marker cannot be reliably determined from those the marker channel images because marker expression is variable and is not homogenous across nuclei like DAPI.
+# Phase 3: Refinements
 
 Geodesic reconstruction allows us to use a reliable marker like DAPI to determine which cells overlap an area of marker expression.
 
+Here we make use of the third-party [MorphoLibJ](https://github.com/ijpb/MorphoLibJ) library/plugin for morphological operators. MorphoLibJ provides a function for that implements geodesic reconstruction. It's definition looks something like this:
+
+```python
+def reconstructByDilation(markerProc, maskProc, connectivity):
+  #implentation
+```
+
 ---
-Here we make use of the third-party [MorphoLib](https://github.com/ijpb/MorphoLibJ) library/plugin for morphological operators. To implement this, we simply create a function to use DAPI as a mask for geodesic reconstruction of the marker images:
+
+We simply create a function to use DAPI as a mask for geodesic reconstruction of a marker image:
 
 ```python
 def apply_mask(marker, mask):
@@ -23,7 +30,7 @@ def apply_mask(marker, mask):
 ```
 
 ---
-Then we can simply use this function to reconstruct which DAPI cells express the marker.
+Then we can simply use this function to reconstruct images for each marker showing which DAPI cells express that marker.
 
 ```python
 # Filter segmented marker images with the DAPI channels that we trust

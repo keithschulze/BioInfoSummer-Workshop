@@ -1,5 +1,5 @@
-# Fluorescent stain measurement
-Fluorescent wide field images of three fluorescent markers/stains:
+# Example 1: Fluorescent stain measurement
+Fluorescent wide field image of three fluorescent markers/stains:
 
 * Blue: DAPI nuclear marker
 * Red: Marker for wounding
@@ -9,12 +9,12 @@ Fluorescent wide field images of three fluorescent markers/stains:
 
 ---
 
-**Aim:**
+## Aim
 Analyse the area covered and/or intensity of marker for wounding. 
 
-1. Open "[...]/Images/Widefield/Fluorescence Measurement/Fluoro 01.tif" 
-
-2. Calibrate the image:
+<p>1. Open "[...]/Images/Widefield/Fluorescence Measurement/Fluoro 01.tif"</p>
+<br>
+<p>2. Calibrate the image:</p>
 
 ```
 Image → Properties
@@ -24,8 +24,9 @@ Pixel height: 0.6
 Voxel depth: 1
 ```
 
-Calibration are usually encoded in the image metadata in modern microscopes; however, we need to use calibration images for older microscopes. 
+Calibration are usually encoded in the image metadata in modern microscopes 
 
+<br>
 <p>3. Split channels so we can do measurements on a specific channel.</p>
 
 `Image → Colour → Split Channels`
@@ -40,7 +41,7 @@ Calibration are usually encoded in the image metadata in modern microscopes; how
 
 `Process → Filters → Gaussian Blur...`
 
-A Gaussian blur filter helps to smooth noise that is typically present in images acquired with highly sensitive cameras.
+A Gaussian blur filter helps to smooth noise that is typically present in images acquired with highly sensitive camera sensors or detectors.
 
 ![](../images/demo1/fluoro_01_blur.png)
 
@@ -71,12 +72,12 @@ Tick: Area, Min & max grey value, Mean grey value, Area Fraction, Limit to Thres
 
 ![](../images/demo1/set_measurements.png)
 
-
+<br>
 <p>7. Measure:</p>
 
 ` Analyze → Measure`
 
-Here measurement is determining the cumulative area of all stained parts. Later we will utilise connected components to analysis individual characteristics.
+Here we are measuring the cumulative area of all stained parts. In the next example, we will utilise connected components to analyse the characteristics of individual segmented regions.
 
 ![](../images/demo1/fluoro_measure_result.png)
 
